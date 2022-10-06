@@ -1,0 +1,37 @@
+OPERATIA DE SORTARE
+SELECT * FROM `clienti` ORDER BY `nume_clienti` ASC;
+OPERATIA DE FILTRARE A REZULTATELOR:
+SELECT `descriere_produse` FROM `produse` WHERE `descriere_produse` LIKE '%ca%';
+SELECT `oras_clienti` FROM `clienti` WHERE `nume_clienti`= 'POPESCU';
+PSEUDONIME PENTRU FILTRARE;
+SELECT `nume_clienti` AS NUME,`prenume_clienti` AS PRENUME,`judet_clienti` FROM `clienti`;
+COMPARARE;
+SELECT `pret_produse` AS PRET, `id_produse` FROM `produse` WHERE `pret_produse` = '98';
+MAX,AVG,MIN;
+SELECT max(`pret_produse`) from `produse`;
+SELECT avg(`pret_produse`) from `produse`;
+SELECT min(`pret_produse`) from `produse`;
+INNER JOIN;
+SELECT nume_clienti, oras_clienti from clienti inner join comenzi_clienti;
+INNER LEFT:
+SELECT nume_clienti, data_comenzi FROM comenzi_clienti NATURAL LEFT JOIN clienti;
+INTEROGARI AVANSATE:
+FUNCTIA SQRT:
+SELECT `pret_produse`, SQRT(`pret_produse`) AS PRET FROM `produse` WHERE `pret_produse`IS NOT NULL;
+FUNCTIA REPLACE:
+SELECT TELEFON_CLIENTI, REPLACE (TELEFON_CLIENTI,'-','.') AS TELEFON FROM CLIENTI;
+FUNCTIA CEILING:
+SELECT `pret_produse` , CEILING(`pret_produse`) AS PRET_CEILING FROM `produse` WHERE `pret_produse` IS NOT NULL;FUNCTIA REPLACE:
+SELECT TELEFON_CLIENTI, REPLACE (TELEFON_CLIENTI,'-','.') AS TELEFON FROM CLIENTI;
+FUNCTIA CEILING:
+SELECT `pret_produse` , CEILING(`pret_produse`) AS PRET_CEILING FROM `produse` WHERE `pret_produse` IS NOT NULL;
+FUNCTIA FLOOR:
+SELECT `pret_produse`, FLOOR(`pret_produse`) AS PRET_FLOOR FROM `produse` WHERE `pret_produse` IS NOT NULL;
+FUNCTIA CASE SIMPLA:
+SELECT `nume_clienti`, `prenume_clienti`, `varsta_clienti`, CASE `varsta_clienti` WHEN `varsta_clienti` = 25 THEN 'young' ELSE 'old' END as 'tip_client' FROM `clienti`;
+FUNCTIA CASE CU CAUTARE:
+SELECT `id_produse`, `descriere_produse`, `pret_produse`, CASE `pret_produse` WHEN `pret_produse` < 25 THEN 'IEFTIN' WHEN `pret_produse` > 80 THEN 'SCUMP' WHEN `pret_produse` <45 THEN 'IN BUGET' ELSE 'FOARTE SCUMP' END AS 'pret' FROM `produse`;
+
+
+
+
